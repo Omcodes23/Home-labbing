@@ -1,0 +1,32 @@
+
+| Command                                 | Description                                                                     | Example                                   |
+|-----------------------------------------|---------------------------------------------------------------------------------|-------------------------------------------|
+| nvm install [version]                   | Installs the specified version of Node.js.                                      | nvm install 14.17.0                       |
+| nvm uninstall [version]                 | Uninstalls the specified version of Node.js.                                    | nvm uninstall 12.22.1                     |
+| nvm use [version]                       | Sets the specified version of Node.js as the active version.                    | nvm use 14.17.0                           |
+| nvm run [version] [script]              | Runs the specified script using the specified version of Node.js.               | nvm run 14.17.0 app.js                    |
+| nvm exec [version] [command]            | Executes a given command using the specified version of Node.js.                | nvm exec 14.17.0 npm install              |
+| nvm ls                                  | Lists all installed versions of Node.js on your system.                         | nvm ls                                    |
+| nvm ls-remote                           | Lists all available versions of Node.js that can be installed.                  | nvm ls-remote                             |
+| nvm current                             | Displays the currently active version of Node.js.                               | nvm current                               |
+| nvm alias [name] [version]              | Creates a named alias for a specific version of Node.js.                        | nvm alias default 14.17.0                 |
+| nvm unalias [name]                      | Removes the specified alias.                                                    | nvm unalias default                       |
+| nvm reinstall-packages [version]        | Reinstalls global npm packages contained in the specified version of Node.js.   | nvm reinstall-packages 14.17.0            |
+| nvm which [version]                     | Displays the path to the executable of the specified version of Node.js.        | nvm which 14.17.0                         |
+| nvm alias default [version]             | Sets the specified version of Node.js as the default version.                   | nvm alias default 14.17.0                 |
+| nvm deactivate                          | Deactivates the currently active version of Node.js.                            | nvm deactivate                            |
+| nvm version                             | Displays the installed version of nvm.                                          | nvm version                               |
+| nvm help                                | Displays help information about nvm and its commands.                           | nvm help                                  |
+| nvm unload                              | Unloads nvm from your shell.                                                    | nvm unload                                |
+| nvm reload                              | Reloads nvm in your shell.                                                      | nvm reload                                |
+| nvm install-latest-npm                  | Installs the latest version of npm.                                             | nvm install-latest-npm                    |
+| nvm use [version] --delete-prefix       | Deletes the prefix configuration for the specified version of Node.js.          | nvm use 14.17.0 --delete-prefix           |
+| nvm cache dir                           | Displays the directory where nvm caches versions.                               | nvm cache dir                             |
+| nvm cache clear                         | Clears the nvm cache.                                                           | nvm cache clear                           |
+| nvm prefix [version]                    | Displays the installation prefix of the specified version of Node.js.           | nvm prefix 14.17.0                        |
+| nvm version-remote [version]            | Checks if a specific version of Node.js is available remotely.                  | nvm version-remote 14.17.0                |
+| nvm list [available|current|remote]     | Lists the versions matching the given filter.                                   | nvm list available                        |
+| nvm proxy [url]                         | Sets the specified URL as the proxy.                                            | nvm proxy http://proxy.example.com        |
+| nvm node_mirror [url]                   | Sets the specified URL as the Node.js mirror.                                   | nvm node_mirror https://nodejs.org/dist/  |
+| nvm npm_mirror [url]                    | Sets the specified URL as the npm mirror.                                       | nvm npm_mirror https://npm.example.com/   |
+

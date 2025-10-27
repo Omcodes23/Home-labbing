@@ -1,0 +1,53 @@
+Installation Commands for GUI in Ubuntu Server : 
+
+apt install tasksel
+apt install slim/lightdm
+cat /etc/X11/default-display-manager  // To see the default display manager
+tasksel // Install Ubuntu Desktop
+
+VNC Configration : 
+
+apt install tigervnc-standalone-server
+adduser kirin // add user
+deluser kirin // del user
+password:
+su - kirin/omega
+root user : sudo su -
+vncserver -localhost no // Start VNC Server
+vncserver -list // List of Running VNC Servers
+
+VNC Url format : {}.{}.{}.{}:{port}
+ 
+su - omega/kirin // Switch Between Users
+
+vncserver -kill :1
+
+Installation and Configuration of Ubuntu Server in the HYPER-V : 
+
+Uncheck points : 
+1 . Security
+
+SSH Configuration : 
+
+sudo service ssh start
+sudo systemctl status ssh
+
+Url : ssh username@ipaddress -p portnumber(default 22)
+Global Configuration : visit canyouseemme.org to find the open port than replace teh ipaddress to public ipaddress
+
+Ip Address Finding : 
+ip addr
+ifconfig
+
+
+Remote Configurations :
+SERVEO.NET :
+ssh -R 80:{}{}{}{}:80 serveo.net
+ssh -R domainname:80:{}{}{}{}:80 serveo.net
+
+LOCALHOST.RUN :
+ssh -R 80:{}{}{}{}:80 ssh.localhost.run
+
+Ngrok :
+ngrok tcp --region=ap 22
+
