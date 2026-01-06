@@ -1,0 +1,68 @@
+services:
+  pve-1:
+    image: ghcr.io/longqt-sea/proxmox-ve
+    container_name: pve-1
+    hostname: pve-1
+    privileged: true
+    restart: unless-stopped
+    cgroup: host
+    ports:
+      - "2222:22"
+      - "3128:3128"
+      - "8006:8006"   # First node Web GUI is listening on 8006
+    networks:
+      - dual_stack
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup
+      - /usr/lib/modules:/usr/lib/modules:ro
+      - /sys/kernel/security:/sys/kernel/security
+      - ./VM-Backup:/var/lib/vz/dump
+      - ./ISOs:/var/lib/vz/template/iso  # Replace ./ISOs with the path to your ISO folder
+
+  pve-2:
+    image: ghcr.io/longqt-sea/proxmox-ve
+    container_name: pve-2
+    hostname: pve-2
+    privileged: true
+    restart: unless-stopped
+    cgroup: host
+    ports:
+      - "2223:22"
+      - "3129:3128"
+      - "8007:8006"   # Second node Web GUI is listening on 8007
+    networks:
+      - dual_stack
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup
+      - /usr/lib/modules:/usr/lib/modules:ro
+      - /sys/kernel/security:/sys/kernel/security
+      - ./VM-Backup:/var/lib/vz/dump
+      - ./ISOs:/var/lib/vz/template/iso  # Replace ./ISOs with the path to your ISO folder
+
+  pve-3:
+    image: ghcr.io/longqt-sea/proxmox-ve
+    container_name: pve-3
+    hostname: pve-3
+    privileged: true
+    restart: unless-stopped
+    cgroup: host
+    ports:
+      - "2224:22"
+      - "3130:3128"
+      - "8008:8006"   # Third node Web GUI is listening on 8008
+    networks:
+      - dual_stack
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup
+      - /usr/lib/modules:/usr/lib/modules:ro
+      - /sys/kernel/security:/sys/kernel/security
+      - ./VM-Backup:/var/lib/vz/dump
+      - ./ISOs:/var/lib/vz/template/iso  # Replace ./ISOs with the path to your ISO folder
+
+networks:
+  dual_stack:
+    enable_ipv6: true
+    driver: bridge
+    ipam:
+      config:
+        - subnet: fd00::/48
